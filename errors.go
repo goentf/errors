@@ -46,18 +46,6 @@ func New(text string, cause ...error) error {
 	}
 }
 
-// Package returns the package name where the error occurred.
-func Package(err error) string {
-	if err == nil {
-		return ""
-	}
-	e, ok := err.(*errorChain)
-	if !ok {
-		return ""
-	}
-	return e.pc.PackFull()
-}
-
 // File returns the file path where the error occurred.
 func File(err error) string {
 	if err == nil {
